@@ -1,0 +1,48 @@
+spring:              
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: avs-core
+          uri: http://avs-core:8991
+          predicates:
+            - Path=/avs-core/**
+          filters:
+            - StripPrefix=1
+        - id: avs-sms
+          uri: http://avs-sms:8992
+          predicates:
+            - Path=/avs-sms/**
+          filters:
+            - StripPrefix=1
+        - id: avs-airtime
+          uri: http://avs-airtime:8993
+          predicates:
+            - Path=/avs-airtime/**
+          filters:
+            - StripPrefix=1
+        - id: avs-contact
+          uri: http://avs-contact:8994
+          predicates:
+            - Path=/avs-contact/**
+          filters:
+            - StripPrefix=1       
+        - id: avs-report
+          uri: http://avs-report:8995
+          predicates:
+            - Path=/avs-report/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: 8990
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://avs-registry:8761/eureka

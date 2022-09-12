@@ -1,0 +1,43 @@
+spring:              
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: avs-core
+          uri: http://localhost:8991
+          predicates:
+            - Path=/avs-core/**
+          filters:
+            - StripPrefix=1
+        - id: avs-sms
+          uri: http://localhost:8992
+          predicates:
+            - Path=/avs-sms/**
+          filters:
+            - StripPrefix=1
+        - id: avs-airtime
+          uri: http://localhost:8993
+          predicates:
+            - Path=/avs-airtime/**
+          filters:
+            - StripPrefix=1
+        - id: avs-contact
+          uri: http://localhost:8994
+          predicates:
+            - Path=/avs-contact/**
+          filters:
+            - StripPrefix=1       
+        - id: avs-report
+          uri: http://localhost:8995
+          predicates:
+            - Path=/avs-report/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: 8990

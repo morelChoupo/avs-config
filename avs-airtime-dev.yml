@@ -1,0 +1,42 @@
+server:
+  port: 8993
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://localhost:8080/auth/realms/avs-payment
+          jwk-set-uri: https://localhost:8080/auth/realms/avs-payment/protocol/openid-connect/certs
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+    default:
+      queue: airtime-queue
+    direct:
+      queue:
+        1: direct-queue-1
+        2: campaign-queue
+      exchange: direct-exchange
+    direct-routing-key:
+      1: direct-routing-key-1
+      2: direct-routing-key-2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+core:
+  service:
+    url-core: http://localhost:8990/avs-core
+
+logging:
+  level:
+    root: debug
+

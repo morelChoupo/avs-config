@@ -1,0 +1,43 @@
+server:
+  port: 8991
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port:  587
+    username: mailertest35@gmail.com
+    password: feyfoxkhznjzkylv
+    properties:
+      mail:
+      smtp:
+        auth: true
+        starttls.enable: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: db_core_management
+      auto-index-creation: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/avs-payment
+          jwk-set-uri: http://localhost:8080/auth/realms/avs-payment/protocol/openid-connect/certs
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+core:
+  service:
+    url-povider-keycloack: http://localhost:8688/
+    
+
+logging:
+  level:
+    root: debug
+
+service:
+  url-provider-keycloack: http://localhost:8688/

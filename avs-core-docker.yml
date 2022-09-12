@@ -1,0 +1,25 @@
+server:
+  port: 8991
+
+spring:
+  data:
+    mongodb:
+      host: avs-data
+      port: 27017
+      database: db_core_management
+      auto-index-creation: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://192.168.2.6:8080/auth/realms/avs-payment
+          jwk-set-uri: http://192.168.2.6:8080/auth/realms/avs-payment/protocol/openid-connect/certs
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://avs-registry:8761/eureka
+
+core:
+  service:
+    url-povider-keycloack: http://192.168.2.6:8688

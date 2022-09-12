@@ -1,0 +1,54 @@
+server:
+  port: 8992
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: db_campaign_management
+      auto-index-creation: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/avs-payment
+          jwk-set-uri: http://localhost:8080/auth/realms/avs-payment/protocol/openid-connect/certs
+          clientId:
+          clientSecret: 
+          issuer-uri:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+    default:
+      queue: message-queue
+    direct:
+      queue:
+        1: direct-queue-1
+        2: campaign-queue
+      exchange: direct-exchange
+    direct-routing-key:
+      1: direct-routing-key-1
+      2: direct-routing-key-2
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+core:
+  service:
+    url-core: http://localhost:8990/avs-core
+    url-report: http://localhost:8990/avs-report
+
+
+logging:
+  level:
+    root: debug
+
+
+
