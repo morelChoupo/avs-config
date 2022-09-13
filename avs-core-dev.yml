@@ -32,7 +32,7 @@ eureka:
 
 core:
   service:
-    url-povider-keycloack: http://localhost:8688/
+    url-povider-keycloack: http://localhost:8688/keycloak/
     
 
 logging:
@@ -40,4 +40,4 @@ logging:
     root: debug
 
 service:
-  url-provider-keycloack: http://localhost:8688/
+  url-provider-keycloack: http://localhost:8688/keycloak/
