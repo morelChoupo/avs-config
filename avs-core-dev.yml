@@ -5,7 +5,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: csharpclient0@gmail.com
+    username: mailertest35@gmail.com
     properties:
       mail:
         smtp:
@@ -13,7 +13,7 @@ spring:
           starttls:
             enable: true
         debug: false
-    password: Azertyuiop1234567890
+    password: feyfoxkhznjzkylv
 
   data:
     mongodb:
