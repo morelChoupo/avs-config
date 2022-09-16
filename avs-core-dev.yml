@@ -4,14 +4,17 @@ server:
 spring:
   mail:
     host: smtp.gmail.com
-    port:  587
-    username: mailertest35@gmail.com
-    password: feyfoxkhznjzkylv
+    port: 587
+    username: csharpclient0@gmail.com
     properties:
       mail:
-      smtp:
-        auth: true
-        starttls.enable: true
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        debug: false
+    password: Azertyuiop1234567890
+
   data:
     mongodb:
       host: localhost
