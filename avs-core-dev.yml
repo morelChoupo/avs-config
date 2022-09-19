@@ -12,6 +12,7 @@ spring:
           auth: true
           starttls:
             enable: true
+            required: true
         debug: false
     password: feyfoxkhznjzkylv
 
@@ -25,8 +26,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/avs-payment
-          jwk-set-uri: http://localhost:8080/auth/realms/avs-payment/protocol/openid-connect/certs
+          issuer-uri: http://192.168.2.6:8080/realms/avs-payment
+          jwk-set-uri:http://192.168.2.6:8080/realms/avs-payment/protocol/openid-connect/certs
   
 eureka:
   client:
